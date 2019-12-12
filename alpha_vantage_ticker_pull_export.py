@@ -12,7 +12,7 @@ key = 'key'
 
 
 # ticker we are wanting to capture data on
-ticker_symbol = 'ORCL'
+ticker_symbol = 'BRK.B'
 
 
 # Chose your output format, or default to JSON (python dict)
@@ -46,5 +46,7 @@ stock_df['symbol'] = ticker_symbol
 # export to csv
 export_csv = stock_df.to_csv (r'file_out.csv', index = True, header=True) 
 
+# replace '.' in name so file does not have two '.'
+ticker_symbol = ticker_symbol.replace(".","")
 # change generic file name to that of the ticker
 os.rename('file_out.csv', ticker_symbol+'.csv')
